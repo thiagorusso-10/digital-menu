@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍽️ Cardápio Digital SaaS
 
-## Getting Started
+Plataforma white-label moderna para criação e gerenciamento de cardápios digitais com QR Code. Desenvolvida para cafeterias, restaurantes e bares.
 
-First, run the development server:
+![Status](https://img.shields.io/badge/status-production-green)
+![Version](https://img.shields.io/badge/version-1.0.4-blue)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Funcionalidades
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Para o Estabelecimento (Painel Admin)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Gestão de Itens:** Adicionar, editar e remover produtos com facilidade.
+- **Upload Inteligente:** Compressão automática de imagens no navegador (economiza dados e storage).
+- **Categorias:** Organização flexível (Bebidas, Salgados, Doces, etc.).
+- **QR Code Generator:** Gerador integrado de QR Codes para mesas, com cores personalizáveis e logo.
+- **Multi-tenant:** Arquitetura pronta para SaaS (via Clerk Organizations), permitindo múltiplos restaurantes na mesma instância.
+- **UI Moderna:** Interface limpa e responsiva (Mobile-first).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Para o Cliente Final (Cardápio Público)
 
-## Learn More
+- **Acesso Rápido:** Escaneie o QR Code e acesse instantaneamente (sem login).
+- **PWA (Progressive Web App):** Pode ser instalado no celular como um aplicativo nativo.
+- **Performance:** Carregamento ultra-rápido com Next.js e otimização de imagens.
+- **Busca e Filtros:** Navegação fluida entre categorias.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router + Turbopack)
+- **Estilização:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Componentes:** [Shadcn/UI](https://ui.shadcn.com/) + [Radix UI](https://www.radix-ui.com/)
+- **Banco de Dados & Storage:** [Supabase](https://supabase.com/)
+- **Autenticação:** [Clerk](https://clerk.com/)
+- **Deploy:** [Vercel](https://vercel.com/)
+- **Linguagem:** TypeScript
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Como Rodar Localmente
 
-## Deploy on Vercel
+1. **Clone o repositório:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   git clone https://github.com/SEU_USUARIO/digital-menu.git
+   cd digital-menu
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Instale as dependências:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure as variáveis de ambiente:**
+   Crie um arquivo `.env.local` na raiz com:
+
+   ```env
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
+   CLERK_SECRET_KEY=sk_test_...
+   NEXT_PUBLIC_SUPABASE_URL=https://...
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+   ```
+
+4. **Inicie o servidor de desenvolvimento:**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Acesse:** `http://localhost:3000`
+
+## 💎 Modelo de Negócio (SaaS)
+
+Este projeto foi estruturado para ser comercializado como SaaS (Software as a Service):
+
+1. **Self-Service:** O dono do restaurante cria conta (via Clerk), configura o perfil e monta o cardápio sozinho.
+2. **Dados Isolados:** O `orgId` do Clerk garante que um restaurante nunca veja os dados do outro.
+3. **Escalável:** O banco de dados Supabase e o Storage escalam automaticamente.
+
+---
+Desenvolvido com ❤️ por Thiago Russo.
