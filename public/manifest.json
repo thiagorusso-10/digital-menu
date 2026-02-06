@@ -1,0 +1,16 @@
+{
+  "name": "Cardápio Digital",
+  "short_name": "Cardápio",
+  "description": "Seu cardápio digital rápido e moderno",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#F97316",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

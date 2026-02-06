@@ -1,0 +1,21 @@
+﻿
+> digital-menu@0.1.0 lint
+> eslint
+
+
+C:\Users\thiago.russo\.gemini\antigravity\scratch\digital-menu\src\app\admin\preview\preview-client.tsx
+  23:9  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+C:\Users\thiago.russo\.gemini\antigravity\scratch\digital-menu\src\components\qrcode-generator.tsx
+  73:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\thiago.russo\.gemini\antigravity\scratch\digital-menu\src\components\ui\image-upload.tsx
+  6:10  warning  'Label' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\thiago.russo\.gemini\antigravity\scratch\digital-menu\src\lib\actions\categories.ts
+  10:21  warning  'orgId' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  22:17  error    'org' is never reassigned. Use 'const' instead  prefer-const
+
+Ô£û 5 problems (1 error, 4 warnings)
+  1 error and 1 warning potentially fixable with the `--fix` option.
+
