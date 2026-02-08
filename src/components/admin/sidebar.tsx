@@ -58,7 +58,7 @@ export function Sidebar({ template, orgName, logoUrl, isOpen, onClose }: Sidebar
                             <span className={`font-bold text-lg ${colors.sidebarText}`}>
                                 {orgName || "Cardápio"}
                             </span>
-                            <span className={`block text-xs ${colors.accentLight} font-medium`}>Admin Panel</span>
+                            <span className={`block text-xs ${colors.accentLight} font-medium`}>Painel Admin</span>
                         </div>
                     </div>
                 </div>

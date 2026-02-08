@@ -137,3 +137,34 @@ export async function getOrganizationSettings() {
 
     return data;
 }
+
+export async function createDefaultOrganization() {
+    const { userId } = await checkAuth();
+
+    // Check if exists again to be safe
+    const existing = await getOrganizationSettings();
+    if (existing) return existing;
+
+    const timestamp = Date.now();
+    const name = "Meu Restaurante";
+    const slug = `restaurante-${timestamp}`; // Simple unique slug
+
+    const { data, error } = await supabase
+        .from("organizations")
+        .insert({
+            clerk_org_id: userId,
+            name,
+            slug,
+            theme_preset: "neo-brutal",
+            admin_theme: "sunset"
+        })
+        .select()
+        .single();
+
+    if (error) {
+        console.error("Failed to create default organization:", error);
+        throw new Error(error.message);
+    }
+
+    return data;
+}

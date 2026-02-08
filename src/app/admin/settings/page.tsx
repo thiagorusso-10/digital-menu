@@ -3,10 +3,22 @@ import { redirect } from "next/navigation";
 import { SettingsClient } from "./settings-client";
 
 export default async function SettingsPage() {
-    const org = await getOrganizationSettings();
+    let org = await getOrganizationSettings();
 
     if (!org) {
-        redirect("/admin/categories");
+        // Auto-fix: Create organization if it doesn't exist
+        // This handles cases where webhook failed or user was created before DB setup
+        try {
+            const { createDefaultOrganization } = await import("@/lib/actions/settings");
+            await createDefaultOrganization();
+            org = await getOrganizationSettings();
+        } catch (error) {
+            console.error("Auto-creation failed:", error);
+        }
+
+        if (!org) {
+            redirect("/admin/categories");
+        }
     }
 
     return (
