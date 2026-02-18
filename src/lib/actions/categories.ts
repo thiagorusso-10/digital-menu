@@ -51,11 +51,13 @@ export async function createCategory(formData: FormData) {
 
     // Auto-create org for MVP if missing
     if (!org) {
-        const slug = `menu-${userId.slice(-8).toLowerCase()}`;
+        const slug = `menu-${Date.now()}-${userId.slice(-6).toLowerCase()}`;
         const newOrg = await supabase.from("organizations").insert({
             clerk_org_id: userId,
             name: "Meu Restaurante",
             slug: slug,
+            theme_preset: "neo-brutal",
+            admin_theme: "sunset",
         }).select("id").single();
 
         if (newOrg.data) org = newOrg.data;
